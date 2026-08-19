@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-void: #05070b;
+  --color-panel: #0b0f14;
+  --color-card: #10151c;
+  --color-card-hover: #161d27;
+  --color-line: #1c2430;
+  --color-ink: #eef1f5;
+  --color-mute: #8b93a1;
+  --color-faint: #5c6573;
+  --color-cyan: #5ce1d6;
+  --color-azure: #7aa8ff;
+  --color-violet: #a78bfa;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+  background: var(--color-void);
+  color: var(--color-mute);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-cyan) 30%, transparent);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  border-radius: 0.5rem;
+  background: var(--color-cyan);
+  color: #04110f;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.site-backdrop {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 8% -8%, rgba(92, 225, 214, 0.08), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 92% 4%, rgba(122, 168, 255, 0.07), transparent 50%),
+    radial-gradient(ellipse 45% 30% at 70% 100%, rgba(167, 139, 250, 0.05), transparent 55%);
+}
+
+.site-grid {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black, transparent);
+}
+
+.site-dots {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+  background-image: radial-gradient(rgba(238, 241, 245, 0.35) 0.7px, transparent 0.8px);
+  background-size: 26px 26px;
+}
+
+.site-lines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(115deg, transparent 40%, rgba(92, 225, 214, 0.35) 50%, transparent 60%);
+  background-size: 180% 180%;
+}
+
+.glass {
+  background: color-mix(in srgb, var(--color-panel) 72%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.65rem;
+  padding: 0.78rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.btn-primary {
+  background: var(--color-cyan);
+  color: #04110f;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-cyan) 40%, transparent);
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--color-cyan) 88%, white);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-line);
+  background: color-mix(in srgb, var(--color-card) 70%, transparent);
+  color: var(--color-ink);
+}
+
+.btn-secondary:hover {
+  border-color: color-mix(in srgb, var(--color-cyan) 45%, var(--color-line));
+  color: var(--color-cyan);
+  transform: translateY(-1px);
+}
+
+.chip {
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8125rem;
+  color: var(--color-ink);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.chip:hover {
+  border-color: color-mix(in srgb, var(--color-cyan) 35%, var(--color-line));
+  background: color-mix(in srgb, var(--color-cyan) 8%, var(--color-panel));
+}
+
+.photo-glow {
+  box-shadow:
+    0 0 0 1px rgba(92, 225, 214, 0.22),
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 80px rgba(92, 225, 214, 0.12);
+}
+
+.lab-pulse {
+  display: inline-block;
+  height: 0.375rem;
+  width: 0.375rem;
+  border-radius: 999px;
+  background: var(--color-cyan);
+  box-shadow: 0 0 0 0 rgba(92, 225, 214, 0.6);
+  animation: pulse-dot 2.8s ease-out infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(92, 225, 214, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(92, 225, 214, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(92, 225, 214, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .lab-pulse {
+    animation: none;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .chip {
+    transition: none;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+}
