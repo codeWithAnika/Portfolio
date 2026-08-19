@@ -40,8 +40,8 @@ export default function SecurityVisual() {
       <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-panel photo-glow">
         <div className="absolute inset-0 bg-gradient-to-b from-cyan/10 via-transparent to-azure/10" />
         <img
-          src="/anika-vintal-talavadekar.jpg"
-          alt="Anika Vintal Talavadekar"
+          src="/anika-vinit-talavadekar.jpg"
+          alt="Anika Vinit Talavadekar"
           width={480}
           height={600}
           className="relative z-[1] aspect-[4/5] w-full object-cover object-top"

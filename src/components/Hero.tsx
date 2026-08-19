@@ -41,7 +41,7 @@ export default function Hero() {
             transition={{ duration, delay: reduce ? 0 : 0.1 }}
             className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-mute"
           >
-            I&apos;m Anika Vintal Talavadekar, a third-year B.Tech Cyber Security
+            I&apos;m Anika Vinit Talavadekar, a third-year B.Tech Cyber Security
             student at Shah and Anchor Kutchhi Engineering College, building
             hands-on academic, lab, and project experience across cybersecurity,
             digital forensics, ethical hacking, web application security, and

@@ -1,6 +1,6 @@
-# Anika Vintal Talavadekar — Portfolio
+# Anika Vinit Talavadekar — Portfolio
 
-Personal portfolio site for Anika Vintal Talavadekar, a third-year B.Tech Cyber Security student at Shah and Anchor Kutchhi Engineering College.
+Personal portfolio site for Anika Vinit Talavadekar, a third-year B.Tech Cyber Security student at Shah and Anchor Kutchhi Engineering College.
 
 ## Local development
 

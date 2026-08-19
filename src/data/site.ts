@@ -1,9 +1,9 @@
 export const site = {
-  name: 'Anika Vintal Talavadekar',
+  name: 'Anika Vinit Talavadekar',
   shortName: 'ANIKA.',
-  title: 'Anika Vintal Talavadekar | Cyber Security Student',
+  title: 'Anika Vinit Talavadekar | Cyber Security Student',
   description:
-    'Portfolio of Anika Vintal Talavadekar, a B.Tech Cyber Security student focused on cybersecurity, digital forensics, ethical hacking, web security, network security, and security labs.',
+    'Portfolio of Anika Vinit Talavadekar, a B.Tech Cyber Security student focused on cybersecurity, digital forensics, ethical hacking, web security, network security, and security labs.',
   role: 'Cyber Security Student | Digital Forensics & Security',
   degree: 'B.Tech Cyber Security',
   degreeFull: 'B.Tech in Cyber Security',
