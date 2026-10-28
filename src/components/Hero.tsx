@@ -1,87 +1,124 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowUpRight, MapPin } from 'lucide-react'
+import { ArrowUpRight, FolderGit2, Mail, MapPin, GraduationCap, FileText } from 'lucide-react'
 import { GitHubIcon, LinkedInIcon } from './SocialIcons'
 import { site } from '../data/site'
 import { fadeUp, motionDuration, stagger } from '../lib/motion'
+import { useResumeExists } from '../lib/hooks'
 import SecurityVisual from './SecurityVisual'
 
 export default function Hero() {
   const reduce = useReducedMotion()
   const duration = motionDuration(reduce, 0.55)
+  const resumeExists = useResumeExists(site.resumePath)
 
   return (
     <section
       id="home"
-      className="relative z-[1] overflow-hidden px-5 pb-16 pt-24 sm:px-8 sm:pt-28 md:pb-24 lg:px-10"
+      className="relative z-[1] overflow-hidden px-5 pb-16 pt-24 sm:px-8 sm:pt-28 md:pb-20 lg:px-10"
+      aria-label="Introduction"
     >
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)] lg:gap-16">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)] lg:gap-16">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={reduce ? fadeUp : stagger}
         >
-          <motion.p
+          {/* Professional Status Pill */}
+          <motion.div
             variants={fadeUp}
             transition={{ duration }}
-            className="font-mono text-[11px] font-medium tracking-[0.18em] text-cyan uppercase"
+            className="inline-flex items-center gap-2 rounded-full border border-cyan/25 bg-cyan/8 px-3.5 py-1.5 font-mono text-[11px] tracking-[0.16em] text-cyan uppercase"
           >
-            Cyber Security • Digital Forensics • Ethical Hacking
-          </motion.p>
+            <span className={reduce ? 'h-1.5 w-1.5 rounded-full bg-cyan' : 'lab-pulse'} aria-hidden="true" />
+            Cybersecurity Student • Mumbai, India
+          </motion.div>
 
+          {/* Primary Name Heading */}
           <motion.h1
             variants={fadeUp}
             transition={{ duration, delay: reduce ? 0 : 0.05 }}
-            className="mt-5 font-display text-[2.35rem] font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.65rem]"
+            className="mt-4 font-display text-[2.65rem] font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl lg:text-[4rem]"
           >
-            Cyber Security Student. Digital Forensics & Security.
+            Anika Talavadekar
           </motion.h1>
 
+          {/* Core Specialization Subtitle */}
           <motion.p
             variants={fadeUp}
-            transition={{ duration, delay: reduce ? 0 : 0.1 }}
-            className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-mute"
+            transition={{ duration, delay: reduce ? 0 : 0.09 }}
+            className="mt-3 font-mono text-base font-medium tracking-wide text-cyan sm:text-lg md:text-xl"
           >
-            I&apos;m Anika Vinit Talavadekar, a third-year B.Tech Cyber Security
-            student at Shah and Anchor Kutchhi Engineering College, building
-            hands-on academic, lab, and project experience across cybersecurity,
-            digital forensics, ethical hacking, web application security, and
-            network security.
+            Cybersecurity Student | SOC • DFIR • AppSec
           </motion.p>
 
+          {/* Factual Professional Overview */}
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration, delay: reduce ? 0 : 0.13 }}
+            className="mt-5 max-w-xl text-base leading-relaxed text-mute sm:text-[1.05rem]"
+          >
+            Third-year B.Tech Cyber Security student at Shah & Anchor Kutchhi Engineering College,
+            Mumbai. Building verified hands-on competence across security operations, digital
+            forensics and incident response, web & API security, and network traffic analysis
+            through disciplined lab work and security assessments.
+          </motion.p>
+
+          {/* Action CTAs */}
           <motion.div
             variants={fadeUp}
-            transition={{ duration, delay: reduce ? 0 : 0.16 }}
+            transition={{ duration, delay: reduce ? 0 : 0.18 }}
             className="mt-8 flex flex-wrap items-center gap-3"
           >
             <a href="#projects" className="btn-primary">
+              <FolderGit2 size={16} />
               View Projects
             </a>
-            <a href="#contact" className="btn-secondary">
-              Contact Me
-            </a>
+
             <a
               href={site.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-2 py-2 text-sm text-mute transition-colors hover:text-ink"
+              className="btn-secondary"
+              aria-label="View Anika's GitHub profile"
             >
               <GitHubIcon size={16} />
-              GitHub
+              View GitHub
               <ArrowUpRight size={14} />
             </a>
+
             <a
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-2 py-2 text-sm text-mute transition-colors hover:text-ink"
+              className="btn-secondary"
+              aria-label="Connect with Anika on LinkedIn"
             >
               <LinkedInIcon size={16} />
               LinkedIn
               <ArrowUpRight size={14} />
             </a>
+
+            <a href="#contact" className="btn-secondary">
+              <Mail size={16} />
+              Contact Me
+            </a>
+
+            {resumeExists ? (
+              <a
+                href={site.resumePath}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                aria-label="Download Resume PDF"
+              >
+                <FileText size={16} />
+                Resume
+              </a>
+            ) : null}
           </motion.div>
         </motion.div>
 
+        {/* Hero Security Visual Card */}
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,6 +129,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* Fact-based Telemetry Cards */}
       <motion.div
         initial={{ opacity: 0, y: reduce ? 0 : 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -100,34 +138,31 @@ export default function Hero() {
       >
         <div className="rounded-2xl border border-line bg-card/70 p-4 backdrop-blur">
           <p className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.14em] text-faint uppercase">
-            <MapPin size={12} />
-            Location
+            <GraduationCap size={13} className="text-cyan" />
+            Education & Program
           </p>
-          <p className="mt-1.5 text-sm text-ink">{site.locationShort}</p>
+          <p className="mt-1.5 text-sm font-medium text-ink">{site.degree}</p>
+          <p className="mt-0.5 text-xs text-mute">{site.college}</p>
         </div>
+
         <div className="rounded-2xl border border-line bg-card/70 p-4 backdrop-blur">
-          <p className="font-mono text-[10px] tracking-[0.14em] text-faint uppercase">
-            Program
+          <p className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.14em] text-faint uppercase">
+            <MapPin size={13} className="text-cyan" />
+            Location & Timeline
           </p>
-          <p className="mt-1.5 text-sm text-ink">{site.degree}</p>
+          <p className="mt-1.5 text-sm font-medium text-ink">{site.locationShort}</p>
+          <p className="mt-0.5 text-xs text-mute">Cohort {site.academicPeriod} • {site.year}</p>
         </div>
+
         <div className="rounded-2xl border border-line bg-card/70 p-4 backdrop-blur">
-          <p className="font-mono text-[10px] tracking-[0.14em] text-faint uppercase">
-            Academic period
+          <p className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.14em] text-faint uppercase">
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan" aria-hidden="true" />
+            Internship Background
           </p>
-          <p className="mt-1.5 text-sm text-ink">{site.academicPeriod}</p>
+          <p className="mt-1.5 text-sm font-medium text-ink">Future Interns</p>
+          <p className="mt-0.5 text-xs text-mute">Cyber Security Intern (Completed)</p>
         </div>
       </motion.div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration, delay: reduce ? 0 : 0.34 }}
-        className="mx-auto mt-5 flex w-full max-w-6xl items-center gap-2 rounded-full border border-cyan/20 bg-cyan/5 px-4 py-2 font-mono text-[10px] leading-relaxed tracking-[0.12em] text-cyan uppercase sm:w-fit"
-      >
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" aria-hidden="true" />
-        Open to cybersecurity opportunities • collaboration • continuous learning
-      </motion.p>
     </section>
   )
 }

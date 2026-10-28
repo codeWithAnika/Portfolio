@@ -1,71 +1,61 @@
-export interface PracticalCard {
-  id: string
-  number: string
+export interface InternshipDetails {
+  label: string
+  role: string
+  company: string
   title: string
-  items: string[]
+  status: string
+  description: string
+  deliverables: string[]
+  recognitions: string[]
+  skillsApplied: string[]
 }
 
-export const practicalWork: PracticalCard[] = [
-  {
-    id: 'network',
-    number: '01',
-    title: 'Network Analysis',
-    items: ['Wireshark', 'DNS', 'TCP', 'ICMP'],
-  },
-  {
-    id: 'assessment',
-    number: '02',
-    title: 'Security Assessment',
-    items: ['Kali Linux', 'Nmap', 'Burp Suite'],
-  },
-  {
-    id: 'web-api',
-    number: '03',
-    title: 'Web & API Security',
-    items: ['Burp Suite', 'API Security', 'Web Testing'],
-  },
-  {
-    id: 'forensics',
-    number: '04',
-    title: 'Digital Forensics',
-    items: ['FTK Imager', 'Evidence analysis', 'Forensic workflows'],
-  },
-  {
-    id: 'phishing',
-    number: '05',
-    title: 'Phishing Analysis',
-    items: ['Phishing investigation', 'Email analysis', 'Awareness'],
-  },
-]
-
-export const internship = {
-  label: 'Professional Internship',
+export const internship: InternshipDetails = {
+  label: 'Verified Internship Experience',
+  role: 'Cyber Security Intern',
+  company: 'Future Interns',
   title: 'Cyber Security Intern — Future Interns',
+  status: 'Completed',
   description:
-    'Completed a Cyber Security Internship at Future Interns, gaining practical exposure to cybersecurity concepts and information security. Strengthened analytical and problem-solving skills while exploring different aspects of cybersecurity through practical learning and security-focused work.',
+    'Completed a hands-on Cyber Security Internship at Future Interns, gaining practical exposure to cybersecurity methodologies, vulnerability testing, and threat evaluation. Strengthened technical documentation and investigative skills while conducting security evaluations across web applications, REST APIs, and phishing vectors.',
+  deliverables: [
+    'Web application vulnerability assessment and alert documentation using automated scanning and manual inspection',
+    'Phishing email header deconstruction, WHOIS domain investigation, and threat awareness system implementation',
+    'REST API security risk analysis evaluating authorization checks and endpoint exposure boundaries',
+  ],
   recognitions: ['Certificate of Completion', 'Letter of Recommendation'],
-} as const
+  skillsApplied: [
+    'Vulnerability Assessment',
+    'API Security Testing',
+    'Phishing Analysis',
+    'Threat Evaluation',
+    'Defensive Remediation',
+  ],
+}
 
 export const experienceTracks = [
   {
     id: 'academic',
-    label: 'Academic Projects',
-    title: 'Coursework & laboratories',
+    label: 'Academic Engineering',
+    title: 'B.Tech Coursework & Laboratories',
     description:
-      'Academic cybersecurity coursework, laboratory work, and project-based learning across security, forensics, networking, and databases.',
+      'Rigorous academic training in cybersecurity architectures, cryptography, network protocols, digital forensics, and relational database systems.',
+    highlights: ['Core Systems', 'Security Architecture', 'Forensic Methodologies'],
   },
   {
-    id: 'practical',
-    label: 'Security Labs',
-    title: 'Practical cybersecurity work',
+    id: 'labs',
+    label: 'Practical Security Labs',
+    title: 'Hands-on Tools & Environments',
     description:
-      'Hands-on lab work with Kali Linux, Burp Suite, Wireshark, Nmap, FTK Imager, Scapy, and security-analysis workflows.',
+      'Controlled lab testing utilizing Kali Linux, Burp Suite, Wireshark, Nmap, FTK Imager, and Scapy across virtualized testing networks.',
+    highlights: ['Packet Inspection', 'Proxy Interception', 'Disk Imaging'],
   },
   {
-    id: 'development',
-    label: 'Development Projects',
-    title: 'Software & data',
+    id: 'engineering',
+    label: 'Technical Development',
+    title: 'Security-Oriented Scripting',
     description:
-      'Academic development work using Python, C, C++, HTML, CSS, JavaScript, SQL, Git, and GitHub.',
+      'Development of analytical Python utilities, log parsing routines, database schemas, and collaborative web platforms with Git version control.',
+    highlights: ['Python Automation', 'Relational Schemas', 'Version Control'],
   },
 ] as const
